@@ -9,3 +9,5 @@ adduser pablo
 
 apt-get update
 apt-get install ruby1.9.1 python-imaging git-core
+
+dpkg-reconfigure tzdata
