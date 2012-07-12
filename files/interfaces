@@ -1,0 +1,4 @@
+
+auto wlan0
+iface wlan0 inet dhcp
+	pre-up wpa_supplicant -Dwext -i wlan0 -c /etc/wpa_supplicant.conf -B

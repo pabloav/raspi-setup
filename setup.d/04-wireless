@@ -1,4 +1,18 @@
-#!/bin/sh
-
 # References:
 #   http://www.ctrl-alt-del.cc/2012/05/raspberry-pi-meets-edimax-ew-7811un-wireless-ada.html
+
+
+# Source: https://github.com/raspberrypi/tools/raw/master/arm-bcm2708/linux-x86/arm-bcm2708-linux-gnueabi/sys-root/lib/libstdc++.so.6.0.14
+# Not sure this is strictly necessary: 
+# cp files/libstdc++.so.6.0.14 /usr/lib
+# ldconfig
+
+# Source: http://www.electrictea.co.uk/rpi/8192cu.tar.gz
+cp files/8192cu.ko /lib/modules/3.1.9+/kernel/net/wireless/
+echo 'blacklist rtl8192cu' >> /etc/modprobe.d/blacklist.conf
+echo '8192cu' >> /etc/module
+depmod -a
+
+cat files/interfaces >> /etc/network/interfaces
+cp files/wpa_supplicant.conf /etc/wpa_supplicant.conf
+
