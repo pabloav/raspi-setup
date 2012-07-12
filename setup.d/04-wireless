@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # References:
 #   http://www.ctrl-alt-del.cc/2012/05/raspberry-pi-meets-edimax-ew-7811un-wireless-ada.html
 
@@ -10,9 +12,10 @@
 # Source: http://www.electrictea.co.uk/rpi/8192cu.tar.gz
 cp files/8192cu.ko /lib/modules/3.1.9+/kernel/net/wireless/
 echo 'blacklist rtl8192cu' >> /etc/modprobe.d/blacklist.conf
-echo '8192cu' >> /etc/module
+echo '8192cu' >> /etc/modules
 depmod -a
 
 cat files/interfaces >> /etc/network/interfaces
 cp files/wpa_supplicant.conf /etc/wpa_supplicant.conf
 
+echo "Set the ssid/password using wpa-password(1)"
