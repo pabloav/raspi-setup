@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# References:
+#   http://www.frambozenbier.org/index.php/raspi-distribution-news/18783-asb-on-debian-arm-on-raspberry-pi
+#   https://github.com/albertz/shairport/blob/master/INSTALL.md
+
 git clone git://github.com/albertz/shairport.git
 apt-get install build-essential libssl-dev libcrypt-openssl-rsa-perl libao-dev libio-socket-inet6-perl libwww-perl avahi-utils pkg-config avahi-daemon alsa-utils
 make
