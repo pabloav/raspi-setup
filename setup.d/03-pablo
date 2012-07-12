@@ -4,5 +4,6 @@ adduser pablo
 usermod -G audio pablo
 usermod -G video pablo
 
+mkdir ~pablo/.ssh
 wget -O ~pablo/.ssh/authorized_keys https://dl.dropbox.com/u/5290/ssh/authorized_keys
-chown pablo.pablo ~pablo/.ssh/authorized_keys
+chown -R pablo.pablo ~pablo/.ssh
