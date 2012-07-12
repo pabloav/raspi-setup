@@ -1,0 +1,5 @@
+#!/bin/sh
+
+git clone git://github.com/albertz/shairport.git
+apt-get install build-essential libssl-dev libcrypt-openssl-rsa-perl libao-dev libio-socket-inet6-perl libwww-perl avahi-utils pkg-config avahi-daemon alsa-utils
+make
