@@ -1,0 +1,6 @@
+#!/bin/sh
+
+update-rc.d ssh defaults
+update-rc.d portmap disable
+update-rc.d nfs-common disable
+dpkg-reconfigure --frontend=readline tzdata
