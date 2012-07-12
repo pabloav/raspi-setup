@@ -1,6 +1,8 @@
 #!/bin/sh
 
 adduser pablo
+usermod -G audio pablo
+usermod -G video pablo
 
 wget -O ~pablo/.ssh/authorized_keys https://dl.dropbox.com/u/5290/ssh/authorized_keys
 
