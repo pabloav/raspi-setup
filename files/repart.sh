@@ -68,17 +68,20 @@ response=$(echo "$proceed" | cut -c1 | tr "Y" "y" )
 echo "Proceed: $response"
 
 if [ "$response" = "y" ]; then
-   echo "Proceeding ... "
-   # These sequence of commands will be newline delimited. This is for clarity of reading
-   input="d 2 d 3 n p 2 $new_linux_start $new_linux_end t 2 83 n p 3 $new_swap_start $new_swap_end t 3 82 w"
-
-   echo "$input" | tr " " "\n" | fdisk -cu $BLOCK
-
-   echo "Now you MUST reboot. Issue: 'sudo reboot' or 'sudo shutdown -r now'"
-   echo "When the system comes back up, run the following command: 'sudo resize2fs $BLOCK'"
-   echo "When the resize completes you can verify your new disk size by issuing 'df -h /'"
+	echo "Proceeding ... "
+	# These sequence of commands will be newline delimited. This is for clarity of reading
+	input="d 2 d 3 n p 2 $new_linux_start $new_linux_end t 2 83 n p 3 $new_swap_start $new_swap_end t 3 82 w"
+	
+	echo "$input" | tr " " "\n" | fdisk -cu $BLOCK
+	
+	echo
+	echo "----------------------------- ATTENTION -----------------------------"
+	echo "Now you MUST reboot. Issue: 'sudo reboot' or 'sudo shutdown -r now'"
+	echo "When the system comes back up, run the following command: 'sudo resize2fs $BLOCK'"
+	echo "When the resize completes you can verify your new disk size by issuing 'df -h /'"
+	echo "---------------------------------------------------------------------"
 else
-   echo "Aborting ... "
+	echo "Aborting ... "
 fi
 
 
