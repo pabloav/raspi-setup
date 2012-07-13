@@ -11,6 +11,9 @@ apt-get install -y build-essential libssl-dev libcrypt-openssl-rsa-perl libao-de
 # Sound driver for RasPi
 echo snd_bcm2835 >> /etc/modules
 
+# Set the AirTunes receiver name
+echo "SHAIRPORT_NAME='RasPiTunes'" >> /etc/default/shairport
+
 # Init, you might not want this
 cp files/shairport /etc/init.d/shairport
 update-rc.d shairport defaults 90 10
