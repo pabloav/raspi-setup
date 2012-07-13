@@ -3,4 +3,10 @@
 update-rc.d ssh defaults
 update-rc.d portmap disable
 update-rc.d nfs-common disable
-dpkg-reconfigure --frontend=readline tzdata
+
+# Manual version:
+# dpkg-reconfigure --frontend=readline tzdata
+
+# Automated version:
+echo "US/Eastern" > /etc/timezone    
+dpkg-reconfigure -f noninteractive tzdata
