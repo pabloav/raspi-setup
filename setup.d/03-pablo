@@ -3,8 +3,7 @@
 user=pablo
 
 useradd -s /bin/bash -m $user
-usermod -G audio $user
-usermod -G video $user
+usermod -G audio,video $user
 
 # Gives the user full sudo rights
 echo "$user  ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
