@@ -41,7 +41,7 @@ case "$1" in
 	fi
 
 	[ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
-	start-stop-daemon --pidfile $PIDFILE --start --name $NAME --exec $DAEMON --background  --make-pidfile --chuid $RUNAS -- $DAEMON_ARGS -a "'$SHAIRPORT_NAME'"
+	start-stop-daemon --pidfile $PIDFILE --start --name $NAME --exec $DAEMON --background  --make-pidfile --chuid $RUNAS -- $DAEMON_ARGS -a "$SHAIRPORT_NAME"
 	case "$?" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
 		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
