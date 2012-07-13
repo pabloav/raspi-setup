@@ -15,6 +15,9 @@ echo 'blacklist rtl8192cu' >> /etc/modprobe.d/blacklist.conf
 echo '8192cu' >> /etc/modules
 depmod -a
 
+# Set ifplugd to only watch eth0
+perl -pi.orig -e 's/auto/eth0/ ; s/(.*HOTPLUG_INTERFACES=.*)/# $1/;' /etc/default/ifplugd
+
 cat files/interfaces >> /etc/network/interfaces
 cp files/wpa_supplicant.conf /etc/wpa_supplicant.conf
 
