@@ -14,12 +14,11 @@ N=/etc/init.d/shairport
 
 DAEMON=/usr/local/bin/shairport.pl
 DESC="AirTunes daemon"
-NAME=shairtunes
+NAME=shairport
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 RUNAS=pi
-
-args=""
+DAEMON_ARGS=""
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
@@ -37,8 +36,12 @@ set -e
 
 case "$1" in
   start)
+	if [ ! -n "$SHAIRPORT_NAME" ]; then 
+		SHAIRPORT_NAME=$( echo "ShairPort $$ on" `hostname`);
+	fi
+
 	[ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
-	start-stop-daemon --pidfile $PIDFILE --start --name $NAME --exec $DAEMON --background  --make-pidfile --chuid $RUNAS
+	start-stop-daemon --pidfile $PIDFILE --start --name $NAME --exec $DAEMON --background  --make-pidfile --chuid $RUNAS -- $DAEMON_ARGS -a "'$SHAIRPORT_NAME'"
 	case "$?" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
 		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
