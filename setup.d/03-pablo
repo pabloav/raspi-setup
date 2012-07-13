@@ -2,7 +2,7 @@
 
 user=pablo
 
-useradd $user
+useradd -m $user
 usermod -G audio $user
 usermod -G video $user
 
