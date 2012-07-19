@@ -1,7 +1,7 @@
 #!/bin/sh
 
 mv /etc/apt/sources.list /etc/apt/sources.backup
-cp files/sources.list /etc/apt/sources.list
+install -b -m 0644 files/$VERSION/sources.list /etc/apt/sources.list
 
 apt-get update
 apt-get install -y ruby1.9.1 python-imaging git-core screen

@@ -13,9 +13,9 @@ echo snd_bcm2835 >> /etc/modules
 
 # Set the AirTunes receiver name
 if [ ! -e /etc/default/shairport ]; then
-	cp files/shairport.default /etc/default/shairport
+	install -b -m 0644 files/shairport.default /etc/default/shairport
 fi
 
 # Init, you might not want this
-cp files/shairport.init /etc/init.d/shairport
+install -b -m 0755 files/shairport.init /etc/init.d/shairport
 update-rc.d shairport defaults 90 10
