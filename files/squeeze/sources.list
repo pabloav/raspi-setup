@@ -1,0 +1,6 @@
+
+# Main debian repo
+deb http://http.us.debian.org/debian/ squeeze main non-free
+
+# Nokia Qt5 development
+deb http://archive.qmh-project.org/rpi/debian/ unstable main
