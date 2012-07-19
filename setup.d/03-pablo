@@ -11,6 +11,6 @@ echo "$user  ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 # This disables the default "pi" account, so be cautious
 usermod --expiredate 1 pi
 
-mkdir ~$user/.ssh
-wget -O ~$user/.ssh/authorized_keys https://dl.dropbox.com/u/5290/ssh/authorized_keys
+mkdir /home/$user/.ssh
+wget -O /home/$user/.ssh/authorized_keys https://dl.dropbox.com/u/5290/ssh/authorized_keys
 chown -R $user.$user ~$user/.ssh
