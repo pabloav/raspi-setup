@@ -5,8 +5,8 @@
 
 
 VERSION=squeeze
-if [ grep wheezy /etc/debian_version > /dev/null ]; then
-  VERSION=wheezy
+if grep wheezy /etc/debian_version > /dev/null; then
+  VERSION=raspbian
 fi
 export VERSION
 
