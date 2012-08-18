@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# New tips from this page: http://laptop006.livejournal.com/56829.html
+
 update-rc.d ssh defaults
 update-rc.d portmap disable
 update-rc.d nfs-common disable
@@ -10,3 +12,11 @@ update-rc.d nfs-common disable
 # Automated version:
 echo "US/Eastern" > /etc/timezone    
 dpkg-reconfigure -f noninteractive tzdata
+
+# Regenerate ssh host keys
+rm /etc/ssh/ssh_host_*key
+dpkg-reconfigure openssh-server
+
+# Disable console blanking
+echo BLANK_TIME=0 >> /etc/kbd/config
+
