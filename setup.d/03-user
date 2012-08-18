@@ -13,4 +13,4 @@ usermod --expiredate 1 pi
 
 mkdir /home/$user/.ssh
 wget -O /home/$user/.ssh/authorized_keys https://dl.dropbox.com/u/5290/ssh/authorized_keys
-chown -R $user.$user ~$user/.ssh
+chown -R $user.$user /home/$user/.ssh
