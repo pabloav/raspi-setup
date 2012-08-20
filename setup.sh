@@ -3,8 +3,7 @@
 # To bootstrap
 # wget --no-check-certificate -Oraspi-setup.tgz https://github.com/pabloav/raspi-setup/tarball/master
 
-
-if [ "$UID" -ne "0" ]; then
+if [ "$USER" != "root" ]; then
   echo "Please run this as root."
   exit 1
 fi
