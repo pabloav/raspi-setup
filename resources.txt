@@ -1,0 +1,4 @@
+/boot/config.txt settings 
+  http://elinux.org/RPi_config.txt
+
+
